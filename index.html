@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Paw & Preference</title>
+  <meta name="description" content="Swipe right if you like the cat, left if not!" />
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Paw & Preference</h1>
+      <p>Swipe right if you like • Swipe left to pass</p>
+    </header>
+
+    <div class="card-stack" id="cardStack"></div>
+
+    <div class="buttons">
+      <button class="dislike-btn" id="dislikeBtn">💔</button>
+      <button class="like-btn" id="likeBtn">❤</button>
+    </div>
+
+    <div class="summary" id="summary">
+      <h2>That's all the cats!</h2>
+      <p>You liked <strong id="likedCount">0</strong> out of <span id="totalCount">0</span> cats</p>
+      <div class="liked-cats" id="likedCats"></div>
+      <button class="restart-btn" onclick="location.reload()">Try Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

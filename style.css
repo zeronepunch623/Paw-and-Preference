@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --like: #51cf66;
+  --nope: #ff6b6b;
+  --bg: #f8f9fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 100vh;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  z-index: 10;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+p {
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.card-stack {
+  flex: 1;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.1s ease-out;
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+.cat-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 20px rgba(0,0,0,0.6);
+  letter-spacing: 4px;
+  border: 12px solid;
+  border-radius: 20px;
+}
+
+.like-overlay {
+  border-color: var(--like);
+  background: rgba(81, 207, 102, 0.25);
+  transform: rotate(-20deg);
+}
+
+.nope-overlay {
+  border-color: var(--nope);
+  background: rgba(255, 107, 107, 0.25);
+  transform: rotate(20deg);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  z-index: 10;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: all 0.2s;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.dislike-btn {
+  background: white;
+  color: var(--nope);
+}
+
+.like-btn {
+  background: white;
+  color: var(--like);
+}
+
+.summary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.9);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+
+.summary.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.liked-cats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+  max-width: 100%;
+}
+
+.liked-cat {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.restart-btn {
+  margin-top: 30px;
+  padding: 14px 32px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-height: 700px) {
+  h1 { font-size: 2rem; }
+  .overlay { font-size: 4.5rem; }
+}
